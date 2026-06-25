@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/agent-health-log/schemas/safety-boundary.schema.json",
+  "title": "Safety Boundary",
+  "type": "object",
+  "$comment": "additionalProperties is false so high-risk responses remain policy-shaped and auditable.",
+  "additionalProperties": false,
+  "required": ["type", "category", "should_log_as_note", "response_policy", "raw_text", "needs_follow_up"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["safety_boundary"]
+    },
+    "category": {
+      "type": "string",
+      "enum": ["medical_or_injury_advice", "medication", "extreme_dieting", "eating_disorder_risk", "urgent_symptoms", "other"]
+    },
+    "related_exercise_id": {
+      "type": ["string", "null"]
+    },
+    "should_log_as_note": {
+      "type": "boolean"
+    },
+    "note": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["date", "text"],
+      "properties": {
+        "date": {
+          "$ref": "#/$defs/flexible_date"
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    "response_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["do_not_provide_diagnosis", "do_not_prescribe_training_plan", "suggest_professional_help", "allowed_response"],
+      "properties": {
+        "do_not_provide_diagnosis": {"type": "boolean"},
+        "do_not_prescribe_training_plan": {"type": "boolean"},
+        "suggest_professional_help": {"type": "boolean"},
+        "allowed_response": {"type": "string"}
+      }
+    },
+    "raw_text": {
+      "type": "string"
+    },
+    "needs_follow_up": {
+      "type": "boolean"
+    },
+    "follow_up_questions": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "$defs": {
+    "flexible_date": {
+      "type": "string",
+      "anyOf": [
+        {"format": "date"},
+        {"enum": ["today", "yesterday"]}
+      ]
+    }
+  }
+}
+

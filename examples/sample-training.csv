@@ -1,0 +1,6 @@
+date,session_type,focus,exercise_id,display_name,weight_kg,reps,set_count,rpe,notes,raw_text
+2026-06-22,pull,背,deadlift,硬拉,80,5,5,,,"今天练背，硬拉 80kg 5x5。"
+2026-06-22,pull,背,pull_up,引体向上,,8,4,,bodyweight,"引体向上 4 组，每组 8 个。"
+2026-06-22,pull,背,seated_row,坐姿划船,45,12,3,,,"坐姿划船 45kg 3 组 12 次。"
+2026-06-24,push,胸,bench_press,杠铃卧推,60,8,4,,,"晚上练胸，卧推 60kg 4 组 8 次。"
+2026-06-25,legs,腿,squat,深蹲,,,,,状态一般；组数、次数、重量未提供,"今天练腿，深蹲做了几组，状态一般。"

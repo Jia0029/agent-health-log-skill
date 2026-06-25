@@ -1,0 +1,213 @@
+{
+  "egg": {
+    "display_name": "鸡蛋",
+    "common_units": {
+      "1个": {"calories_kcal": 70, "protein_g": 6, "carbs_g": 0.5, "fat_g": 5}
+    },
+    "confidence": "medium"
+  },
+  "rice": {
+    "display_name": "米饭",
+    "common_units": {
+      "1碗": {"calories_kcal": 230, "protein_g": 4, "carbs_g": 50, "fat_g": 1}
+    },
+    "confidence": "medium"
+  },
+  "chicken_breast": {
+    "display_name": "鸡胸肉",
+    "common_units": {
+      "100g": {"calories_kcal": 165, "protein_g": 31, "carbs_g": 0, "fat_g": 4}
+    },
+    "confidence": "medium"
+  },
+  "beef": {
+    "display_name": "牛肉",
+    "common_units": {
+      "100g": {"calories_kcal": 250, "protein_g": 26, "carbs_g": 0, "fat_g": 15}
+    },
+    "confidence": "low"
+  },
+  "pork": {
+    "display_name": "猪肉",
+    "common_units": {
+      "100g": {"calories_kcal": 300, "protein_g": 24, "carbs_g": 0, "fat_g": 22}
+    },
+    "confidence": "low"
+  },
+  "fish": {
+    "display_name": "鱼肉",
+    "common_units": {
+      "100g": {"calories_kcal": 140, "protein_g": 22, "carbs_g": 0, "fat_g": 5}
+    },
+    "confidence": "low"
+  },
+  "milk": {
+    "display_name": "牛奶",
+    "common_units": {
+      "250ml": {"calories_kcal": 150, "protein_g": 8, "carbs_g": 12, "fat_g": 8}
+    },
+    "confidence": "medium"
+  },
+  "latte": {
+    "display_name": "拿铁",
+    "common_units": {
+      "1杯": {"calories_kcal": 180, "protein_g": 9, "carbs_g": 14, "fat_g": 9}
+    },
+    "confidence": "low"
+  },
+  "toast": {
+    "display_name": "吐司",
+    "common_units": {
+      "1片": {"calories_kcal": 90, "protein_g": 3, "carbs_g": 16, "fat_g": 1.5}
+    },
+    "confidence": "medium"
+  },
+  "banana": {
+    "display_name": "香蕉",
+    "common_units": {
+      "1根": {"calories_kcal": 105, "protein_g": 1, "carbs_g": 27, "fat_g": 0}
+    },
+    "confidence": "medium"
+  },
+  "apple": {
+    "display_name": "苹果",
+    "common_units": {
+      "1个": {"calories_kcal": 95, "protein_g": 0.5, "carbs_g": 25, "fat_g": 0}
+    },
+    "confidence": "medium"
+  },
+  "noodles": {
+    "display_name": "面条",
+    "common_units": {
+      "1碗": {"calories_kcal": 400, "protein_g": 12, "carbs_g": 70, "fat_g": 8}
+    },
+    "confidence": "low"
+  },
+  "dumplings": {
+    "display_name": "饺子",
+    "common_units": {
+      "10个": {"calories_kcal": 450, "protein_g": 18, "carbs_g": 55, "fat_g": 18}
+    },
+    "confidence": "low"
+  },
+  "hot_pot": {
+    "display_name": "火锅",
+    "common_units": {
+      "1餐": {"calories_kcal": null, "protein_g": null, "carbs_g": null, "fat_g": null}
+    },
+    "confidence": "low"
+  },
+  "protein_powder": {
+    "display_name": "蛋白粉",
+    "common_units": {
+      "1勺": {"calories_kcal": 120, "protein_g": 24, "carbs_g": 3, "fat_g": 2}
+    },
+    "confidence": "medium"
+  },
+  "yogurt": {
+    "display_name": "酸奶",
+    "common_units": {
+      "1杯": {"calories_kcal": 150, "protein_g": 8, "carbs_g": 18, "fat_g": 5}
+    },
+    "confidence": "low"
+  },
+  "oatmeal": {
+    "display_name": "燕麦",
+    "common_units": {
+      "50g": {"calories_kcal": 190, "protein_g": 7, "carbs_g": 33, "fat_g": 4}
+    },
+    "confidence": "medium"
+  },
+  "potato": {
+    "display_name": "土豆",
+    "common_units": {
+      "1个": {"calories_kcal": 160, "protein_g": 4, "carbs_g": 37, "fat_g": 0}
+    },
+    "confidence": "medium"
+  },
+  "sweet_potato": {
+    "display_name": "红薯",
+    "common_units": {
+      "1个": {"calories_kcal": 130, "protein_g": 2, "carbs_g": 30, "fat_g": 0}
+    },
+    "confidence": "medium"
+  },
+  "tofu": {
+    "display_name": "豆腐",
+    "common_units": {
+      "100g": {"calories_kcal": 80, "protein_g": 8, "carbs_g": 2, "fat_g": 5}
+    },
+    "confidence": "medium"
+  },
+  "broccoli": {
+    "display_name": "西兰花",
+    "common_units": {
+      "100g": {"calories_kcal": 35, "protein_g": 3, "carbs_g": 7, "fat_g": 0}
+    },
+    "confidence": "medium"
+  },
+  "salad": {
+    "display_name": "沙拉",
+    "common_units": {
+      "1份": {"calories_kcal": null, "protein_g": null, "carbs_g": null, "fat_g": null}
+    },
+    "confidence": "low"
+  },
+  "fried_rice": {
+    "display_name": "炒饭",
+    "common_units": {
+      "1份": {"calories_kcal": 650, "protein_g": 18, "carbs_g": 85, "fat_g": 25}
+    },
+    "confidence": "low"
+  },
+  "chicken_rice_bowl": {
+    "display_name": "鸡胸肉饭",
+    "common_units": {
+      "1份": {"calories_kcal": 550, "protein_g": 35, "carbs_g": 70, "fat_g": 12}
+    },
+    "confidence": "low"
+  },
+  "soy_milk": {
+    "display_name": "豆浆",
+    "common_units": {
+      "300ml": {"calories_kcal": 130, "protein_g": 8, "carbs_g": 12, "fat_g": 5}
+    },
+    "confidence": "low"
+  },
+  "coffee": {
+    "display_name": "咖啡",
+    "common_units": {
+      "1杯": {"calories_kcal": 5, "protein_g": 0, "carbs_g": 0, "fat_g": 0}
+    },
+    "confidence": "low"
+  },
+  "orange": {
+    "display_name": "橙子",
+    "common_units": {
+      "1个": {"calories_kcal": 80, "protein_g": 1, "carbs_g": 20, "fat_g": 0}
+    },
+    "confidence": "medium"
+  },
+  "avocado": {
+    "display_name": "牛油果",
+    "common_units": {
+      "半个": {"calories_kcal": 120, "protein_g": 1.5, "carbs_g": 6, "fat_g": 11}
+    },
+    "confidence": "medium"
+  },
+  "peanut_butter": {
+    "display_name": "花生酱",
+    "common_units": {
+      "1勺": {"calories_kcal": 95, "protein_g": 4, "carbs_g": 3, "fat_g": 8}
+    },
+    "confidence": "medium"
+  },
+  "egg_fried_noodles": {
+    "display_name": "鸡蛋炒面",
+    "common_units": {
+      "1份": {"calories_kcal": 700, "protein_g": 22, "carbs_g": 90, "fat_g": 28}
+    },
+    "confidence": "low"
+  }
+}
+

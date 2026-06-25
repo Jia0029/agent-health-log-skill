@@ -1,0 +1,6 @@
+date,meal_time,item,display_name,quantity,calories_kcal,protein_g,carbs_g,fat_g,confidence,tags,raw_text
+2026-06-22,breakfast,egg,鸡蛋,2个,140,12,1,10,medium,,早餐两个鸡蛋
+2026-06-22,breakfast,toast,吐司,1片,90,3,16,1.5,medium,,早餐一片吐司
+2026-06-23,lunch,chicken_rice_bowl,鸡胸肉饭,1份,550,35,70,12,low,rough_estimate,午饭吃了鸡胸肉饭
+2026-06-24,dinner,hot_pot,火锅,1餐,,,,,low,restaurant_or_social_meal;rough_estimate,晚上吃了火锅，帮我粗略记一下
+2026-06-25,snack,protein_powder,蛋白粉,1勺,120,24,3,2,medium,,加餐一勺蛋白粉

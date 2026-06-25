@@ -1,0 +1,21 @@
+# Private local health data
+data/*.csv
+daily/*.md
+reports/*.md
+*.sqlite
+*.db
+private/
+personal/
+
+# Environment and local tooling
+.env
+__pycache__/
+*.pyc
+.DS_Store
+__MACOSX/
+._*
+
+# Keep sanitized sample files under version control.
+!examples/sample-nutrition.csv
+!examples/sample-training.csv
+!examples/sample-weekly-report.md

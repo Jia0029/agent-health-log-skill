@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/agent-health-log/schemas/query.schema.json",
+  "title": "Query Or Weekly Review Request",
+  "oneOf": [
+    {
+      "type": "object",
+      "$comment": "additionalProperties is false so query handlers can switch on query_kind safely.",
+      "additionalProperties": false,
+      "required": ["type", "query_kind", "raw_text", "needs_follow_up"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["query"]
+        },
+        "query_kind": {
+          "type": "string",
+          "enum": ["exercise_progress", "nutrition_trend", "training_frequency", "meal_coverage", "body_metrics_summary", "general"]
+        },
+        "exercise_id": {
+          "type": ["string", "null"]
+        },
+        "display_name": {
+          "type": ["string", "null"]
+        },
+        "time_range": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "preset": {
+              "type": "string",
+              "enum": ["recent", "current_week", "last_week", "current_month", "last_30_days", "custom"]
+            },
+            "days": {
+              "type": ["integer", "null"],
+              "minimum": 1
+            },
+            "start_date": {
+              "$ref": "#/$defs/optional_flexible_date"
+            },
+            "end_date": {
+              "$ref": "#/$defs/optional_flexible_date"
+            }
+          }
+        },
+        "metrics": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "raw_text": {
+          "type": "string"
+        },
+        "needs_follow_up": {
+          "type": "boolean"
+        },
+        "follow_up_questions": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "date_anchor", "period", "sections", "raw_text", "needs_follow_up"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["weekly_review_request"]
+        },
+        "date_anchor": {
+          "$ref": "#/$defs/flexible_date"
+        },
+        "period": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["preset"],
+          "properties": {
+            "preset": {
+              "type": "string",
+              "enum": ["current_week", "last_week", "custom"]
+            },
+            "start_date": {
+              "$ref": "#/$defs/optional_flexible_date"
+            },
+            "end_date": {
+              "$ref": "#/$defs/optional_flexible_date"
+            }
+          }
+        },
+        "sections": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "raw_text": {
+          "type": "string"
+        },
+        "needs_follow_up": {
+          "type": "boolean"
+        },
+        "follow_up_questions": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "flexible_date": {
+      "type": "string",
+      "anyOf": [
+        {"format": "date"},
+        {"enum": ["today", "yesterday"]}
+      ]
+    },
+    "optional_flexible_date": {
+      "anyOf": [
+        {"type": "null"},
+        {"$ref": "#/$defs/flexible_date"}
+      ]
+    }
+  }
+}
+
