@@ -1,206 +1,157 @@
 # Agent Health Log Skill
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 > Status: v0.1 experimental MVP. This project is an early local-first skill package for LLM agents.
 
-A local-first health logging skill for LLM agents.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![Local First](https://img.shields.io/badge/local--first-yes-brightgreen)
+![Agent Skill](https://img.shields.io/badge/agent--skill-experimental-blue)
+![Languages](https://img.shields.io/badge/languages-English%20%7C%20Chinese-lightgrey)
 
-Agent Health Log Skill is not a traditional fitness app. It is an agent-agnostic local health logging skill for Codex, DeepSeek, Claude Code, Cursor, CodexBridge, Feishu bots, WeChat bots, or any AI agent that can read and write local files.
+Agent Health Log Skill is a local-first health logging skill for OpenAI Codex, Claude Code, VS Code Agent Mode, and other Agent Skills-compatible tools.
 
-The goal is simple: let users record meals, workouts, and body state in natural language, then let the agent classify intent, produce structured JSON, preserve `raw_text`, write local Markdown / CSV files, and support weekly or monthly review. Future versions can upgrade the same data model to SQLite.
+It lets users record meals, workouts, body metrics, sleep, soreness, weekly health reviews, and exercise progress queries in natural language. Agents parse the input into structured JSON, preserve `raw_text`, and use local scripts to write CSV / Markdown records.
 
-This version is an experimental MVP. It is mainly for local logging and review. It does not provide medical advice, does not aim for precise nutrition estimation, and does not include a full app, cloud sync, or photo-based meal recognition.
-
-## Why This Project
-
-Traditional meal and workout apps often require too many taps, forms, and manual corrections. This project turns logging into a sentence:
-
-```text
-早餐一杯拿铁、两个鸡蛋、一片吐司。
-今天练背，硬拉 80kg 5x5。
-```
-
-The agent handles structure, uncertainty, local storage, and review. The project is about low-friction logging, local data ownership, and periodic reflection. It is not about replacing coaches, doctors, dietitians, or physical therapists.
-
-## Core Features
-
-- Natural language meal logging
-- Natural language workout logging
-- Body metrics logging
-- Mixed meal + workout input
-- Local Markdown / CSV storage
-- Weekly review
-- Exercise history query
-- Rough nutrition estimate with confidence
-- Safety boundary for medical / injury cases
-
-## MVP Scope
-
-v0.1 experimental focuses on:
-
-- Markdown / CSV storage
-- JSON Schema Draft 2020-12
-- Local Python scripts
-- An agent-facing `SKILL.md`
-- Sanitized examples
-- Parser test cases
-
-## Out of Scope for v0.1
-
-- Precise nutrition database
-- Medical advice
-- Injury diagnosis
-- Complete mobile app
-- Automatic photo-based meal recognition
-- Cloud sync
-
-## Repository Structure
-
-```text
-agent-health-log-skill/
-  README.md
-  SKILL.md
-  LICENSE
-  .gitignore
-  PRIVACY.md
-  SAFETY.md
-  docs/
-  schemas/
-  references/
-  examples/
-  tests/
-  scripts/
-```
+This is not a traditional fitness app. It is not a medical tool. It does not provide diagnosis, treatment, injury rehabilitation plans, medication advice, or extreme dieting guidance.
 
 ## Quick Start
 
-Initialize local private data files:
+### Universal Agent Skill install, recommended
+
+For OpenAI Codex, VS Code Agent Mode, and other Agent Skills-compatible tools:
+
+```bash
+git clone https://github.com/Jia0029/agent-health-log-skill.git
+cd agent-health-log-skill
+
+python scripts/install_skill.py --target agents-user
+python ~/.agents/skills/agent-health-log/scripts/healthlog.py init
+```
+
+Then ask your agent:
+
+```text
+Use agent-health-log to record: breakfast was two eggs and a latte. Today I trained back, deadlift 80kg 5x5.
+```
+
+In Codex, use `/skills` to check availability, or mention `$agent-health-log` explicitly when you want to force the skill.
+
+### Claude Code install
+
+```bash
+git clone https://github.com/Jia0029/agent-health-log-skill.git
+cd agent-health-log-skill
+
+python scripts/install_skill.py --target claude-personal
+python ~/.claude/skills/agent-health-log/scripts/healthlog.py init
+```
+
+Then in Claude Code:
+
+```text
+/agent-health-log Breakfast was two eggs and a latte. Today I trained back, deadlift 80kg 5x5.
+```
+
+### Developer / CLI mode
+
+Use this mode to test schemas, scripts, and local write behavior:
+
+```bash
+python skills/agent-health-log/scripts/healthlog.py init
+python skills/agent-health-log/scripts/healthlog.py write-stdin
+python skills/agent-health-log/scripts/healthlog.py report weekly
+```
+
+By default, real local health data is stored under:
+
+```text
+~/.agent-health-log/
+```
+
+Override it with:
+
+```bash
+python skills/agent-health-log/scripts/healthlog.py --data-dir ./private-health-log init
+```
+
+## What It Logs
+
+- Meals and drinks
+- Workouts, exercises, sets, reps, weight, RPE, and notes
+- Sleep and body metrics
+- Soreness and general body-state notes
+- Mixed meal + workout inputs
+- Exercise history queries
+- Weekly health reviews
+- Safety-boundary notes for medical or injury-adjacent input
+
+## Repository Layout
+
+```text
+skills/agent-health-log/     # Installable skill package
+scripts/install_skill.py     # Installer for common agent skill paths
+scripts/                     # Developer/debug scripts
+schemas/                     # JSON Schema Draft 2020-12
+references/                  # Food basics, exercise aliases, safety rules
+examples/                    # Sanitized examples
+tests/                       # Parser test cases
+docs/                        # English and Simplified Chinese docs
+```
+
+## Documentation
+
+- [Installation](docs/install.md)
+- [Compatibility](docs/compatibility.md)
+- [Demo](docs/demo.md)
+- [Privacy](PRIVACY.md)
+- [Safety](SAFETY.md)
+
+## Developer / Debug Mode
+
+Initialize local files in the repository working directory:
 
 ```bash
 python scripts/init_health_log.py
 ```
 
-Write a meal record:
+Write a structured meal record:
 
 ```bash
-echo '{"type":"meal_log","date":"today","meals":[{"meal_time":"breakfast","items":[{"name":"egg","display_name":"鸡蛋","quantity":"2个","nutrition_estimate":{"calories_kcal":140,"protein_g":12,"carbs_g":1,"fat_g":10,"confidence":"medium"}}]}],"raw_text":"早餐两个鸡蛋","needs_follow_up":false}' | python scripts/write_record.py --timezone Asia/Tokyo
+echo '{"type":"meal_log","date":"today","meals":[{"meal_time":"breakfast","items":[{"name":"egg","display_name":"Egg","quantity":"2","nutrition_estimate":{"calories_kcal":140,"protein_g":12,"carbs_g":1,"fat_g":10,"confidence":"medium"}}]}],"raw_text":"breakfast was two eggs","needs_follow_up":false}' | python scripts/write_record.py --timezone Asia/Tokyo
 ```
 
-Write a workout record:
-
-```bash
-echo '{"type":"workout_log","date":"today","session_type":"pull","focus":"背","exercises":[{"exercise_id":"deadlift","display_name":"硬拉","sets":[{"weight_kg":80,"reps":5,"set_count":5}],"rpe":null,"notes":null}],"raw_text":"今天练背，硬拉80kg 5x5","needs_follow_up":false}' | python scripts/write_record.py --timezone Asia/Tokyo
-```
-
-Generate the current weekly report:
+Generate a weekly report:
 
 ```bash
 python scripts/generate_weekly_report.py --timezone Asia/Tokyo
 ```
 
-Run parser test validation:
+Validate parser test cases:
 
 ```bash
 python scripts/validate_test_cases.py
 ```
 
-Use `--date YYYY-MM-DD` to anchor `today` / `yesterday` for reproducible tests, or `--timezone Area/City` to resolve the current date in a specific IANA timezone.
+## Privacy
 
-## Intent Types
+Agent Health Log Skill is local-first. Do not commit real meal logs, workout logs, body weight, sleep records, injury notes, medical details, or full chat logs to GitHub.
 
-Writable record intents:
+The repository `.gitignore` excludes common private data paths such as `data/`, `daily/`, `reports/`, `private/`, `personal/`, `*.sqlite`, and `*.db`.
 
-- `meal_log`
-- `workout_log`
-- `mixed_log`
-- `body_metrics_log`
-- `safety_boundary`
+## Safety
 
-Request intents:
-
-- `query`
-- `weekly_review_request`
-
-`query` and `weekly_review_request` should not be written to CSV. They should trigger local data reads and produce an answer or report. `scripts/write_record.py` rejects request intents with a clear message.
-
-## Example Inputs and Outputs
-
-Input:
-
-```text
-午饭吃了鸡胸肉饭，晚上练胸，卧推 60kg 4 组 8 次。
-```
-
-Structured output:
-
-```json
-{
-  "type": "mixed_log",
-  "date": "today",
-  "meal_log": {
-    "meals": [
-      {
-        "meal_time": "lunch",
-        "items": [
-          {
-            "name": "chicken_rice_bowl",
-            "display_name": "鸡胸肉饭",
-            "quantity": "1份",
-            "nutrition_estimate": {
-              "calories_kcal": null,
-              "protein_g": null,
-              "carbs_g": null,
-              "fat_g": null,
-              "confidence": "low"
-            }
-          }
-        ]
-      }
-    ]
-  },
-  "workout_log": {
-    "session_type": "push",
-    "focus": "胸",
-    "exercises": [
-      {
-        "exercise_id": "bench_press",
-        "display_name": "杠铃卧推",
-        "sets": [
-          {
-            "weight_kg": 60,
-            "reps": 8,
-            "set_count": 4
-          }
-        ],
-        "rpe": null,
-        "notes": null
-      }
-    ]
-  },
-  "raw_text": "午饭吃了鸡胸肉饭，晚上练胸，卧推 60kg 4 组 8 次。",
-  "needs_follow_up": false
-}
-```
-
-See [examples/sample-scenarios.md](examples/sample-scenarios.md) and [tests/parser-test-cases.json](tests/parser-test-cases.json) for more cases.
-
-## Privacy Notice
-
-This project is local-first. Real personal health data should stay in private local directories such as `data/`, `daily/`, `reports/`, `private/`, or `personal/`. These paths are ignored by default.
-
-Do not commit real health records, body weight, injury details, medical information, addresses, contact details, or full chat logs to GitHub.
-
-## Safety Disclaimer
-
-This project is a logging and review tool. It does not provide medical diagnosis, disease treatment, injury rehabilitation plans, medication advice, or extreme dieting guidance. For pain, injury, disease, medication, fainting, chest pain, breathing difficulty, or eating disorder risk, trigger `safety_boundary` and recommend professional help.
+This project is for logging and reflection only. If the user mentions pain, injury, disease, medication, extreme dieting, eating disorder risk, fainting, chest pain, breathing difficulty, or other urgent symptoms, agents should trigger `safety_boundary`, record only factual notes, and suggest consulting a qualified professional.
 
 ## Roadmap
 
-- v0.1: Skill instructions, schemas, CSV storage, examples, parser tests, minimal scripts
-- v0.2: Better food basics, exercise aliases, weekly report generator, exercise history query
-- v0.3: SQLite, stronger validation, import/export
+- v0.1: Installable skill package, bilingual docs, CSV/Markdown storage, schemas, examples, parser tests
+- v0.2: Better exercise and food normalization, query helpers
+- v0.3: SQLite and import/export
 - v0.4: Local dashboard and charts
-- Future: Photo-based meal estimation, wearable integration, bot examples, Obsidian/Notion sync, multi-language support
+- Future: Photo-based meal estimation, wearable integration, more agent integrations, multi-language docs
 
 ## License
 
 MIT License. See [LICENSE](LICENSE).
+

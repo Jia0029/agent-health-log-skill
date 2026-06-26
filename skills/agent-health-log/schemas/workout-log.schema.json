@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/agent-health-log/schemas/workout-log.schema.json",
+  "title": "Workout Log",
+  "type": "object",
+  "$comment": "additionalProperties is false to keep parser output stable for MVP CSV writers.",
+  "additionalProperties": false,
+  "required": ["type", "date", "session_type", "focus", "exercises", "raw_text", "needs_follow_up"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["workout_log"]
+    },
+    "date": {
+      "$ref": "#/$defs/flexible_date"
+    },
+    "session_type": {
+      "type": "string",
+      "enum": ["push", "pull", "legs", "cardio", "core", "full_body", "mobility", "unknown"]
+    },
+    "focus": {
+      "type": ["string", "null"]
+    },
+    "exercises": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/exercise"
+      }
+    },
+    "raw_text": {
+      "type": "string"
+    },
+    "needs_follow_up": {
+      "type": "boolean"
+    },
+    "follow_up_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "flexible_date": {
+      "type": "string",
+      "anyOf": [
+        {"format": "date"},
+        {"enum": ["today", "yesterday"]}
+      ]
+    },
+    "set": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["weight_kg", "reps", "set_count"],
+      "properties": {
+        "weight_kg": {"type": ["number", "null"]},
+        "reps": {"type": ["integer", "null"]},
+        "set_count": {"type": ["integer", "null"]},
+        "duration_minutes": {"type": ["number", "null"]},
+        "distance_km": {"type": ["number", "null"]}
+      }
+    },
+    "exercise": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["exercise_id", "display_name", "sets", "rpe", "notes"],
+      "properties": {
+        "exercise_id": {"type": "string"},
+        "display_name": {"type": "string"},
+        "aliases_seen": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "sets": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/set"}
+        },
+        "rpe": {"type": ["number", "null"], "minimum": 0, "maximum": 10},
+        "notes": {"type": ["string", "null"]}
+      }
+    }
+  }
+}
+

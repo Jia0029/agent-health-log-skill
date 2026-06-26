@@ -1,6 +1,6 @@
 ---
 name: agent-health-log
-description: Use this skill when the user wants to record meals, workouts, body metrics, or generate health log summaries from natural language. This skill is local-first and agent-agnostic. It stores structured records in Markdown, CSV, or SQLite-compatible formats while preserving raw user input and uncertainty.
+description: Log meals, workouts, body metrics, sleep, soreness, exercise progress, and weekly health reviews from natural language, including English and Chinese inputs. Use when the user says they ate, drank, trained, lifted, ran, slept, 记录饮食, 记录训练, 睡眠, 身体状态, 周报, or asks about workout history. Local-first. Does not provide medical diagnosis, treatment, injury rehab, medication advice, or extreme dieting guidance.
 ---
 
 # Agent Health Log
@@ -187,6 +187,17 @@ Not allowed:
 - Create injury rehabilitation plans.
 - Tell the user to train through pain.
 - Give extreme diet plans.
+
+## Chinese Trigger Examples
+
+Use this skill for Chinese inputs such as:
+
+- "早餐两个鸡蛋，一杯拿铁。"
+- "今天练背，硬拉 80kg 5x5。"
+- "昨晚睡了 6 小时，今天精神一般。"
+- "帮我生成这周饮食和训练周报。"
+- "最近卧推有没有进步？"
+- "我膝盖疼，还能不能继续深蹲？" should trigger `safety_boundary`.
 
 ## Storage Rules
 

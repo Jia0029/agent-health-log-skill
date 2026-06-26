@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/agent-health-log/schemas/body-metrics.schema.json",
+  "title": "Body Metrics Log",
+  "type": "object",
+  "$comment": "additionalProperties is false to avoid accidentally publishing sensitive fields in parser outputs.",
+  "additionalProperties": false,
+  "required": ["type", "date", "metrics", "raw_text", "needs_follow_up"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["body_metrics_log"]
+    },
+    "date": {
+      "$ref": "#/$defs/flexible_date"
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": {
+        "type": ["string", "number", "boolean", "null"]
+      },
+      "minProperties": 1
+    },
+    "notes": {
+      "type": ["string", "null"]
+    },
+    "raw_text": {
+      "type": "string"
+    },
+    "needs_follow_up": {
+      "type": "boolean"
+    },
+    "follow_up_questions": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "$defs": {
+    "flexible_date": {
+      "type": "string",
+      "anyOf": [
+        {"format": "date"},
+        {"enum": ["today", "yesterday"]}
+      ]
+    }
+  }
+}
+

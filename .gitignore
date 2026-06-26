@@ -6,6 +6,8 @@ reports/*.md
 *.db
 private/
 personal/
+.agents/
+.claude/
 
 # Environment and local tooling
 .env

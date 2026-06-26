@@ -1,0 +1,183 @@
+{
+  "bench_press": {
+    "display_name": "杠铃卧推",
+    "aliases": ["卧推", "杠铃卧推", "bench press", "barbell bench press"],
+    "primary_muscles": ["胸", "肱三头肌", "三角肌前束"],
+    "default_session_type": "push"
+  },
+  "incline_bench_press": {
+    "display_name": "上斜卧推",
+    "aliases": ["上斜卧推", "上斜杠铃卧推", "incline bench press"],
+    "primary_muscles": ["上胸", "肱三头肌", "三角肌前束"],
+    "default_session_type": "push"
+  },
+  "dumbbell_press": {
+    "display_name": "哑铃卧推",
+    "aliases": ["哑铃卧推", "哑铃推胸", "dumbbell press", "dumbbell bench press"],
+    "primary_muscles": ["胸", "肱三头肌", "三角肌前束"],
+    "default_session_type": "push"
+  },
+  "shoulder_press": {
+    "display_name": "肩推",
+    "aliases": ["肩推", "推肩", "推举", "shoulder press", "overhead press"],
+    "primary_muscles": ["三角肌", "肱三头肌"],
+    "default_session_type": "push"
+  },
+  "lateral_raise": {
+    "display_name": "侧平举",
+    "aliases": ["侧平举", "哑铃侧平举", "lateral raise"],
+    "primary_muscles": ["三角肌中束"],
+    "default_session_type": "push"
+  },
+  "triceps_pushdown": {
+    "display_name": "绳索下压",
+    "aliases": ["绳索下压", "三头下压", "triceps pushdown"],
+    "primary_muscles": ["肱三头肌"],
+    "default_session_type": "push"
+  },
+  "deadlift": {
+    "display_name": "硬拉",
+    "aliases": ["硬拉", "deadlift", "conventional deadlift"],
+    "primary_muscles": ["臀", "腘绳肌", "背", "竖脊肌"],
+    "default_session_type": "pull"
+  },
+  "pull_up": {
+    "display_name": "引体向上",
+    "aliases": ["引体", "引体向上", "pull up", "pull-up"],
+    "primary_muscles": ["背阔肌", "肱二头肌"],
+    "default_session_type": "pull"
+  },
+  "lat_pulldown": {
+    "display_name": "高位下拉",
+    "aliases": ["高位下拉", "下拉", "lat pulldown"],
+    "primary_muscles": ["背阔肌", "肱二头肌"],
+    "default_session_type": "pull"
+  },
+  "seated_row": {
+    "display_name": "坐姿划船",
+    "aliases": ["坐姿划船", "器械划船", "seated row"],
+    "primary_muscles": ["背", "菱形肌", "肱二头肌"],
+    "default_session_type": "pull"
+  },
+  "barbell_row": {
+    "display_name": "杠铃划船",
+    "aliases": ["杠铃划船", "俯身划船", "barbell row"],
+    "primary_muscles": ["背", "肱二头肌", "后束"],
+    "default_session_type": "pull"
+  },
+  "biceps_curl": {
+    "display_name": "二头弯举",
+    "aliases": ["弯举", "二头弯举", "哑铃弯举", "biceps curl"],
+    "primary_muscles": ["肱二头肌"],
+    "default_session_type": "pull"
+  },
+  "squat": {
+    "display_name": "深蹲",
+    "aliases": ["深蹲", "杠铃深蹲", "squat", "barbell squat"],
+    "primary_muscles": ["股四头肌", "臀", "腘绳肌"],
+    "default_session_type": "legs"
+  },
+  "leg_press": {
+    "display_name": "腿举",
+    "aliases": ["腿举", "倒蹬", "leg press"],
+    "primary_muscles": ["股四头肌", "臀"],
+    "default_session_type": "legs"
+  },
+  "romanian_deadlift": {
+    "display_name": "罗马尼亚硬拉",
+    "aliases": ["罗马尼亚硬拉", "RDL", "romanian deadlift"],
+    "primary_muscles": ["腘绳肌", "臀", "竖脊肌"],
+    "default_session_type": "legs"
+  },
+  "leg_curl": {
+    "display_name": "腿弯举",
+    "aliases": ["腿弯举", "俯卧腿弯举", "leg curl"],
+    "primary_muscles": ["腘绳肌"],
+    "default_session_type": "legs"
+  },
+  "leg_extension": {
+    "display_name": "腿屈伸",
+    "aliases": ["腿屈伸", "坐姿腿屈伸", "leg extension"],
+    "primary_muscles": ["股四头肌"],
+    "default_session_type": "legs"
+  },
+  "calf_raise": {
+    "display_name": "提踵",
+    "aliases": ["提踵", "站姿提踵", "calf raise"],
+    "primary_muscles": ["小腿"],
+    "default_session_type": "legs"
+  },
+  "plank": {
+    "display_name": "平板支撑",
+    "aliases": ["平板支撑", "plank"],
+    "primary_muscles": ["核心"],
+    "default_session_type": "core"
+  },
+  "crunch": {
+    "display_name": "卷腹",
+    "aliases": ["卷腹", "仰卧卷腹", "crunch"],
+    "primary_muscles": ["腹直肌"],
+    "default_session_type": "core"
+  },
+  "running": {
+    "display_name": "跑步",
+    "aliases": ["跑步", "慢跑", "running", "jogging"],
+    "primary_muscles": ["心肺", "下肢"],
+    "default_session_type": "cardio"
+  },
+  "cycling": {
+    "display_name": "骑行",
+    "aliases": ["骑行", "动感单车", "cycling", "bike"],
+    "primary_muscles": ["心肺", "下肢"],
+    "default_session_type": "cardio"
+  },
+  "rowing_machine": {
+    "display_name": "划船机",
+    "aliases": ["划船机", "rowing machine", "row erg"],
+    "primary_muscles": ["心肺", "背", "腿"],
+    "default_session_type": "cardio"
+  },
+  "push_up": {
+    "display_name": "俯卧撑",
+    "aliases": ["俯卧撑", "push up", "push-up"],
+    "primary_muscles": ["胸", "肱三头肌", "三角肌前束"],
+    "default_session_type": "push"
+  },
+  "dips": {
+    "display_name": "双杠臂屈伸",
+    "aliases": ["臂屈伸", "双杠臂屈伸", "dips"],
+    "primary_muscles": ["胸", "肱三头肌"],
+    "default_session_type": "push"
+  },
+  "face_pull": {
+    "display_name": "面拉",
+    "aliases": ["面拉", "face pull"],
+    "primary_muscles": ["后三角", "上背"],
+    "default_session_type": "pull"
+  },
+  "hip_thrust": {
+    "display_name": "臀推",
+    "aliases": ["臀推", "hip thrust"],
+    "primary_muscles": ["臀"],
+    "default_session_type": "legs"
+  },
+  "lunge": {
+    "display_name": "弓步",
+    "aliases": ["弓步", "箭步蹲", "lunge"],
+    "primary_muscles": ["股四头肌", "臀"],
+    "default_session_type": "legs"
+  },
+  "hanging_leg_raise": {
+    "display_name": "悬垂举腿",
+    "aliases": ["悬垂举腿", "hanging leg raise"],
+    "primary_muscles": ["核心", "髋屈肌"],
+    "default_session_type": "core"
+  },
+  "elliptical": {
+    "display_name": "椭圆机",
+    "aliases": ["椭圆机", "elliptical"],
+    "primary_muscles": ["心肺", "下肢"],
+    "default_session_type": "cardio"
+  }
+}
+

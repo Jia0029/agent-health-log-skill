@@ -1,0 +1,8 @@
+interface:
+  display_name: "Agent Health Log"
+  short_description: "Local-first natural-language meal, workout, and body metric logging. Supports English and Chinese inputs."
+  default_prompt: "Use agent-health-log to record a meal, workout, body metric, or weekly health review."
+
+policy:
+  allow_implicit_invocation: true
+

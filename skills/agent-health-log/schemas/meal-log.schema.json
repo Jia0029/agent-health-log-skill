@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/agent-health-log/schemas/meal-log.schema.json",
+  "title": "Meal Log",
+  "type": "object",
+  "$comment": "additionalProperties is false to keep parser output stable for MVP CSV writers.",
+  "additionalProperties": false,
+  "required": ["type", "date", "meals", "raw_text", "needs_follow_up"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["meal_log"]
+    },
+    "date": {
+      "$ref": "#/$defs/flexible_date"
+    },
+    "meals": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/meal"
+      }
+    },
+    "raw_text": {
+      "type": "string"
+    },
+    "needs_follow_up": {
+      "type": "boolean"
+    },
+    "follow_up_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "flexible_date": {
+      "type": "string",
+      "anyOf": [
+        {"format": "date"},
+        {"enum": ["today", "yesterday"]}
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low"]
+    },
+    "nutrition_estimate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["calories_kcal", "protein_g", "carbs_g", "fat_g", "confidence"],
+      "properties": {
+        "calories_kcal": {"type": ["number", "null"]},
+        "protein_g": {"type": ["number", "null"]},
+        "carbs_g": {"type": ["number", "null"]},
+        "fat_g": {"type": ["number", "null"]},
+        "confidence": {"$ref": "#/$defs/confidence"}
+      }
+    },
+    "food_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "display_name", "quantity", "nutrition_estimate"],
+      "properties": {
+        "name": {"type": "string"},
+        "display_name": {"type": "string"},
+        "quantity": {"type": ["string", "null"]},
+        "nutrition_estimate": {"$ref": "#/$defs/nutrition_estimate"},
+        "tags": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "meal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["meal_time", "items"],
+      "properties": {
+        "meal_time": {
+          "type": "string",
+          "enum": ["breakfast", "lunch", "dinner", "snack", "unknown"]
+        },
+        "items": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/food_item"}
+        }
+      }
+    }
+  }
+}
+
