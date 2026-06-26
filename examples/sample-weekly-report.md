@@ -39,7 +39,33 @@ This is anonymized sample output. It is not based on real personal health data.
 - Use simple body status notes such as sleep and energy if helpful.
 - Review trends only after enough local data exists.
 
+## Visualization-Ready Data
+
+```json
+{
+  "charts": [
+    {
+      "chart_type": "line",
+      "title": "Deadlift Top Set",
+      "x": ["2026-06-10", "2026-06-17", "2026-06-24"],
+      "y": [75, 80, 80],
+      "unit": "kg"
+    },
+    {
+      "chart_type": "bar",
+      "title": "Meal Logging Coverage",
+      "x": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      "y": [1, 1, 0, 1, 1, 1, 0],
+      "unit": "logged_day"
+    }
+  ]
+}
+```
+
+## Why This Matters
+
+The record is useful because it becomes a weekly review, a progress check, and chart-ready local data. The user can start with one-sentence logging and later build dashboards or deeper analysis without changing the basic data model.
+
 ## 免责声明
 
 This report is for logging and reflection only. It is not medical advice, nutrition prescription, diagnosis, or injury rehabilitation guidance.
-

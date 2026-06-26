@@ -321,3 +321,47 @@ notes: "Body metrics example intentionally excludes body weight and sensitive he
 confidence: high
 ```
 
+## 12. Outcome Showcase Request
+
+```yaml
+user_input: "这些记录有什么用？帮我生成一份本周复盘和可视化数据样例。"
+intent: weekly_review
+expected_structured_json:
+  type: weekly_review_request
+  date_anchor: today
+  period:
+    preset: current_week
+  sections:
+    - training_frequency
+    - exercise_progress
+    - meal_logging_coverage
+    - nutrition_estimate_summary
+    - sleep_energy_context
+    - visualization_ready_data
+    - next_week_suggestions
+  raw_text: "这些记录有什么用？帮我生成一份本周复盘和可视化数据样例。"
+  needs_follow_up: false
+notes: "This request should read local records and generate a review plus chart-ready data. It should not write a normal CSV record."
+confidence: high
+```
+
+Expected user-facing result:
+
+```text
+## 本周复盘
+
+- 训练天数：3 天
+- 饮食记录覆盖：5/7 天
+- 重点动作：硬拉最高工作组 80kg x 5
+- 睡眠记录：4 天，平均 6.6 小时
+
+## 可视化数据样例
+
+{
+  "chart_type": "line",
+  "title": "硬拉最高工作组",
+  "x": ["2026-06-10", "2026-06-17", "2026-06-24"],
+  "y": [75, 80, 80],
+  "unit": "kg"
+}
+```

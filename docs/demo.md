@@ -4,6 +4,8 @@
 
 All examples are sanitized and do not contain real personal health data.
 
+The main outcome is not the CSV row itself. The row is the raw material for weekly reviews, exercise progress summaries, nutrition trend tables, and future local dashboards. See [Outcome Showcase](../examples/outcome-showcase.md) for an end-to-end example.
+
 ## 1. Meal Logging Demo
 
 User input:
@@ -308,3 +310,46 @@ User confirmation:
 Logged the knee pain note. I cannot diagnose it; please stop painful movement and consult a qualified professional if it persists or worsens.
 ```
 
+## 8. Outcome Showcase Demo
+
+After several days of sanitized sample logs, an agent can generate a review like:
+
+```markdown
+# Weekly Review
+
+## Summary
+
+- Training days: 3
+- Meal logging days: 5
+- Key lift tracked: deadlift
+- Sleep notes: 4 days
+
+## Trends
+
+| Metric | This week | Note |
+| --- | ---: | --- |
+| Deadlift top set | 80kg x 5 | Stable baseline |
+| Logged protein average | 92g/day | Rough estimate |
+| Meal coverage | 5/7 days | Two missing days |
+| Sleep average | 6.6h | Low on training days |
+
+## Next Review Questions
+
+- Did low-sleep days overlap with weaker training sessions?
+- Is protein logging consistent enough for trend analysis?
+- Which lift should be tracked as the next benchmark?
+```
+
+Visualization-ready output can be produced as simple chart data:
+
+```json
+{
+  "chart_type": "line",
+  "title": "Deadlift Top Set",
+  "x": ["2026-06-10", "2026-06-17", "2026-06-24"],
+  "y": [75, 80, 80],
+  "unit": "kg"
+}
+```
+
+This is why the project keeps structured CSV plus `raw_text`: users get low-friction input now, and useful review or visualization later.

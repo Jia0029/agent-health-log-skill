@@ -86,6 +86,20 @@ python skills/agent-health-log/scripts/healthlog.py --data-dir ./private-health-
 - 每周健康复盘
 - 涉及伤病或医疗风险时的安全边界备注
 
+## 记录之后有什么用
+
+这个项目的价值不只是“把数据存下来”。当饮食、训练、睡眠和身体状态持续沉淀在本地后，Agent 可以把它们整理成：
+
+- 每周复盘总结
+- 关键训练动作进步趋势
+- 饮食记录覆盖率
+- 粗略热量和蛋白质趋势
+- 睡眠、精力和训练状态的关联线索
+- 可视化面板可直接读取的 CSV 数据
+- 可以放进 Obsidian、Git 或本地笔记系统的 Markdown 周报
+
+可以查看 [效果展示](examples/outcome-showcase.md) 和 [Demo 示例](docs/demo.zh-CN.md)，里面有脱敏的周报、趋势表和可视化数据样例。
+
 ## 仓库结构
 
 ```text
@@ -104,6 +118,8 @@ docs/                        # 中英文文档
 - [安装说明](docs/install.zh-CN.md)
 - [兼容性说明](docs/compatibility.zh-CN.md)
 - [Demo 示例](docs/demo.zh-CN.md)
+- [效果展示](examples/outcome-showcase.md)
+- [宣传指南](docs/promotion.zh-CN.md)
 - [隐私说明](PRIVACY.md)
 - [安全边界](SAFETY.md)
 
@@ -154,4 +170,3 @@ Agent Health Log Skill 默认本地优先。不要把真实饮食、训练、体
 ## License
 
 MIT License. See [LICENSE](LICENSE).
-

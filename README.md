@@ -86,6 +86,20 @@ python skills/agent-health-log/scripts/healthlog.py --data-dir ./private-health-
 - Weekly health reviews
 - Safety-boundary notes for medical or injury-adjacent input
 
+## What You Get After Logging
+
+The value is not just storing rows. Once meals, workouts, sleep, and body-state notes accumulate locally, an agent can turn them into:
+
+- Weekly review summaries
+- Exercise progress snapshots
+- Meal logging coverage
+- Rough calorie and protein trends
+- Sleep and energy context
+- CSV data ready for charts or dashboards
+- Markdown reports that can be kept in Obsidian, Git, or any local notes workflow
+
+See [Outcome Showcase](examples/outcome-showcase.md) and [Demo](docs/demo.md) for sanitized examples of weekly reviews, trend tables, and visualization-ready data.
+
 ## Repository Layout
 
 ```text
@@ -104,6 +118,8 @@ docs/                        # English and Simplified Chinese docs
 - [Installation](docs/install.md)
 - [Compatibility](docs/compatibility.md)
 - [Demo](docs/demo.md)
+- [Outcome Showcase](examples/outcome-showcase.md)
+- [Promotion Guide](docs/promotion.md)
 - [Privacy](PRIVACY.md)
 - [Safety](SAFETY.md)
 
@@ -154,4 +170,3 @@ This project is for logging and reflection only. If the user mentions pain, inju
 ## License
 
 MIT License. See [LICENSE](LICENSE).
-
